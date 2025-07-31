@@ -1,135 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Projects | My Website</title>
-    <link rel="stylesheet" href="style.css" />
-    <style>
-        /* Override or extend global styles */
-        .projects-hero {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://source.unsplash.com/1600x900/?code,technology') center/cover no-repeat;
-            height: 60vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-            text-align: center;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Questions.pdf</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      background: #f9f9f9;
+      font-family: sans-serif;
+    }
 
-        .projects-hero h1 {
-            font-size: 3rem;
-        }
+    .pdf-wrapper {
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-        .projects-section {
-            padding: 3rem 2rem;
-            max-width: 1200px;
-            margin: auto;
-        }
+    object {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
 
-        .project-buttons {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
+    .fallback {
+      text-align: center;
+      padding: 2em;
+    }
 
-        .project-button {
-            background-color: #006699;
-            color: white;
-            padding: 1.2rem;
-            text-align: center;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: background-color 0.3s, transform 0.2s;
-        }
-
-        .project-button:hover {
-            background-color: #0099cc;
-            transform: translateY(-5px);
-        }
-
-        .section-header {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        @media (max-width: 600px) {
-            .projects-hero h1 {
-                font-size: 2.2rem;
-            }
-        }
-    </style>
+    .fallback a {
+      color: #007acc;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-
-    <!-- Navigation -->
-     <header>
-        <nav class="navbar">
-            <div class="logo">MyWebsite</div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li class="dropdown">
-                <button class="dropdown-toggle">Pages ▼</button>
-                <ul class="dropdown-menu">
-                    <li><a href="#">About</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="#">Blog</a></li>
-                </ul>
-                </li>
-
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="projects-hero">
-        <h1>Explore Projects</h1>
-    </section>
-
-    <!-- Projects Content -->
-    <section class="projects-section">
-        <h2 class="section-header">Choose a Resource</h2>
-        <div class="project-buttons">
-            <a href="topic-by-topic.html" class="project-button">Topic-by-Topic Questions</a>
-            <a href="#" class="project-button">Past Year Papers</a>
-            <a href="#" class="project-button">Revision Guides</a>
-            <a href="#" class="project-button">Video Tutorials</a>
-            <a href="#" class="project-button">Interactive Quizzes</a>
-            <a href="#" class="project-button">Downloadable PDFs</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 MyWebsite. All rights reserved.</p>
-    </footer>
-
-    <script>
-  // Toggle dropdown menu on click
-  document.addEventListener('click', function (event) {
-    const isToggle = event.target.closest('.dropdown-toggle');
-    const openDropdown = document.querySelector('.dropdown.open');
-
-    if (openDropdown && openDropdown !== isToggle?.closest('.dropdown')) {
-      openDropdown.classList.remove('open');
-    }
-
-    if (isToggle) {
-      const dropdown = isToggle.closest('.dropdown');
-      dropdown.classList.toggle('open');
-    }
-  });
-
-  // Optional: close on ESC key
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') {
-      document.querySelectorAll('.dropdown.open').forEach(d => d.classList.remove('open'));
-    }
-  });
-</script>
-
+  <div class="pdf-wrapper">
+    <object data="Questions.pdf" type="application/pdf">
+      <div class="fallback">
+        <p>Your device can’t display this PDF inline.</p>
+        <p>
+          <a href="Questions.pdf" target="_blank" rel="noopener">
+            Click here to view or download Questions.pdf
+          </a>
+        </p>
+      </div>
+    </object>
+  </div>
 </body>
 </html>

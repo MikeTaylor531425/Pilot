@@ -9,17 +9,12 @@
       margin: 0;
       padding: 0;
       height: 100%;
-      width: 100%;
       background: #f9f9f9;
-      font-family: sans-serif;
     }
 
-    .pdf-wrapper {
-      height: 100vh;
+    .pdf-container {
       width: 100vw;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      height: 100vh;
     }
 
     object {
@@ -29,22 +24,27 @@
     }
 
     .fallback {
+      padding: 2rem;
       text-align: center;
-      padding: 2em;
+      font-family: sans-serif;
     }
 
     .fallback a {
       color: #007acc;
-      text-decoration: underline;
       font-weight: bold;
+      text-decoration: none;
+    }
+
+    .fallback a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <div class="pdf-wrapper">
+  <div class="pdf-container">
     <object data="Questions.pdf" type="application/pdf">
       <div class="fallback">
-        <p>Your device can’t display this PDF inline.</p>
+        <p>Your browser can’t display this PDF.</p>
         <p>
           <a href="Questions.pdf" target="_blank" rel="noopener">
             Click here to view or download Questions.pdf

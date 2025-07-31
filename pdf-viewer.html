@@ -3,72 +3,55 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PDF Viewer</title>
+  <title>Questions.pdf</title>
   <style>
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
-      overflow: hidden;
+      width: 100%;
+      background: #f9f9f9;
+      font-family: sans-serif;
     }
 
-    .pdf-viewer {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      width: 100vw;
+    .pdf-wrapper {
       height: 100vh;
+      width: 100vw;
       display: flex;
-      flex-direction: column;
-      background-color: #f0f0f0;
+      justify-content: center;
+      align-items: center;
     }
 
-    .pdf-frame,
-    .pdf-embed {
-      flex: 1;
-      border: none;
+    object {
       width: 100%;
       height: 100%;
+      border: none;
     }
 
-    .fallback-link {
+    .fallback {
       text-align: center;
-      padding: 1rem;
-      font-size: 1rem;
+      padding: 2em;
     }
 
-    @media (max-width: 768px) {
-      .pdf-frame,
-      .pdf-embed {
-        height: calc(100vh - 0px);
-      }
+    .fallback a {
+      color: #007acc;
+      text-decoration: underline;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <div class="pdf-viewer">
-    <iframe
-      class="pdf-frame"
-      src="Questions.pdf#toolbar=0&navpanes=0&scrollbar=0"
-      title="PDF Viewer"
-    >
-      <!-- Fallback content if iframe fails -->
-      <embed
-        class="pdf-embed"
-        src="Questions.pdf"
-        type="application/pdf"
-      />
-      <div class="fallback-link">
+  <div class="pdf-wrapper">
+    <object data="Questions.pdf" type="application/pdf">
+      <div class="fallback">
+        <p>Your device can’t display this PDF inline.</p>
         <p>
-          Your browser doesn’t support embedded PDFs.
-          <a href="Questions.pdf" target="_blank" rel="noopener">Click here to download the PDF.</a>
+          <a href="Questions.pdf" target="_blank" rel="noopener">
+            Click here to view or download Questions.pdf
+          </a>
         </p>
       </div>
-    </iframe>
+    </object>
   </div>
 </body>
 </html>
-
-

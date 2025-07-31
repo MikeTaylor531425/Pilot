@@ -9,40 +9,66 @@
       margin: 0;
       padding: 0;
       height: 100%;
+      overflow: hidden;
     }
 
-    .pdf-container {
+    .pdf-viewer {
       position: absolute;
       top: 0;
       left: 0;
-      bottom: 0;
       right: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+      bottom: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-color: #f0f0f0;
     }
 
-    .pdf-container iframe {
+    .pdf-frame,
+    .pdf-embed {
+      flex: 1;
+      border: none;
       width: 100%;
       height: 100%;
-      border: none;
+    }
+
+    .fallback-link {
+      text-align: center;
+      padding: 1rem;
+      font-size: 1rem;
     }
 
     @media (max-width: 768px) {
-      .pdf-container iframe {
+      .pdf-frame,
+      .pdf-embed {
         height: calc(100vh - 0px);
       }
     }
   </style>
 </head>
 <body>
-  <div class="pdf-container">
+  <div class="pdf-viewer">
     <iframe
+      class="pdf-frame"
       src="Questions.pdf#toolbar=0&navpanes=0&scrollbar=0"
-      title="PDF"
-    ></iframe>
+      title="PDF Viewer"
+    >
+      <!-- Fallback content if iframe fails -->
+      <embed
+        class="pdf-embed"
+        src="Questions.pdf"
+        type="application/pdf"
+      />
+      <div class="fallback-link">
+        <p>
+          Your browser doesn’t support embedded PDFs.
+          <a href="Questions.pdf" target="_blank" rel="noopener">Click here to download the PDF.</a>
+        </p>
+      </div>
+    </iframe>
   </div>
 </body>
 </html>
+
 

@@ -1,28 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Landing Page</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-      background: #f0f0f0;
-      text-align: center;
-      padding: 50px;
-    }
-    h1 {
-      font-size: 3em;
-      color: #333;
-    }
-    p {
-      color: #666;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome | My Website</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Welcome to My Website</h1>
-  <p>This is the front cover of the site.</p>
+    <!-- Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">MyWebsite</div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li class="dropdown">
+                <button class="dropdown-toggle">Pages ▼</button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                </li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>(Hopefully) various maths notes in future</h1>
+            <p>A website for me to upload useful maths goodies.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Mark. All rights reserved.</p>
+    </footer>
+    <script>
+  // Toggle dropdown menu on click
+  document.addEventListener('click', function (event) {
+    const isToggle = event.target.closest('.dropdown-toggle');
+    const openDropdown = document.querySelector('.dropdown.open');
+
+    if (openDropdown && openDropdown !== isToggle?.closest('.dropdown')) {
+      openDropdown.classList.remove('open');
+    }
+
+    if (isToggle) {
+      const dropdown = isToggle.closest('.dropdown');
+      dropdown.classList.toggle('open');
+    }
+  });
+
+  // Optional: close on ESC key
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.dropdown.open').forEach(d => d.classList.remove('open'));
+    }
+  });
+</script>
+
 </body>
 </html>
+

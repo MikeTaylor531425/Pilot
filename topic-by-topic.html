@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Topic-by-Topic | My Website</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        .topic-hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://source.unsplash.com/1600x900/?education,books') center/cover no-repeat;
+            height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+        }
+
+        .topic-hero h1 {
+            font-size: 3rem;
+        }
+
+        .topic-content {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .preamble {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .topic-button {
+            background-color: #006699;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .topic-button:hover {
+            background-color: #0099cc;
+            transform: translateY(-4px);
+        }
+
+        @media (max-width: 600px) {
+            .topic-hero h1 {
+                font-size: 2rem;
+            }
+
+            .button-group {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">MyWebsite</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                <button class="dropdown-toggle">Pages ▼</button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+                </li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="topic-hero">
+        <h1>Topic-by-Topic Resources</h1>
+    </section>
+
+    <!-- Main Content -->
+    <section class="topic-content">
+        <div class="preamble">
+            <p>
+                Here you’ll find topic-wise resources to help you study and practice more effectively. Each topic contains curated questions and detailed solutions designed to build understanding step-by-step. Choose a resource below to get started.
+            </p>
+        </div>
+
+        <div class="button-group">
+            <a href="pdfviewer.html" class="topic-button">Questions</a>
+            <a href="#" class="topic-button">Solutions</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 MyWebsite. All rights reserved.</p>
+    </footer>
+
+    <script>
+  // Toggle dropdown menu on click
+  document.addEventListener('click', function (event) {
+    const isToggle = event.target.closest('.dropdown-toggle');
+    const openDropdown = document.querySelector('.dropdown.open');
+
+    if (openDropdown && openDropdown !== isToggle?.closest('.dropdown')) {
+      openDropdown.classList.remove('open');
+    }
+
+    if (isToggle) {
+      const dropdown = isToggle.closest('.dropdown');
+      dropdown.classList.toggle('open');
+    }
+  });
+
+  // Optional: close on ESC key
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.dropdown.open').forEach(d => d.classList.remove('open'));
+    }
+  });
+</script>
+
+</body>
+</html>
